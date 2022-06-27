@@ -3,7 +3,8 @@ defmodule Bookapi.Library.Book do
   import Ecto.Changeset
 
   schema "books" do
-    field :isbn, :integer
+    field :author, :string
+    field :isbn, :string
     field :published_date, :date
     field :publisher, :string
     field :title, :string
@@ -15,7 +16,7 @@ defmodule Bookapi.Library.Book do
   @doc false
   def changeset(book, attrs) do
     book
-    |> cast(attrs, [:title, :total_pages, :isbn, :publisher, :published_date])
-    |> validate_required([:title, :total_pages, :isbn, :publisher, :published_date])
+    |> cast(attrs, [:title, :total_pages, :isbn, :author, :publisher, :published_date])
+    |> validate_required([:title, :total_pages, :isbn, :author, :publisher, :published_date])
   end
 end
