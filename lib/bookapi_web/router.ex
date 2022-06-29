@@ -21,9 +21,10 @@ defmodule BookapiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BookapiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", BookapiWeb do
+    pipe_through :api
+    resources "/books", BookController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #
